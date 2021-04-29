@@ -20,30 +20,30 @@ import plotly.offline as py
 #path="C:\Users\hojei\venv\p7\model\"
 
 
-path="C:/Users/hojei/venv/p7/model/"
+#path="C:/Users/hojei/venv/p7/model/"
 @st.cache #mise en cache de la fonction pour exécution unique
-
+url= "https://raw.githubusercontent.com/marwa-abboud/model/master/"
 def chargement(path):
 
-    path_df = path +"dataframe.csv"
-	#path_predict= path +"prediction.csv"
-    path_features = path + "shap_features.pickle"
-    dataframe = pd.read_csv(path_df)
+    path_df = url +"dataframe.csv"
+    path_predict= url +"prediction.csv"
+    #path_features = path + "shap_features.pickle"
+    dataframe = pd.read_csv(path_df,error_bad_lines=False)
     #dataframe.drop(columns='TARGET',inplace=True)
-    predi = pd.read_csv("C:/Users/hojei/venv/p7/model/prediction.csv")
+    predi = pd.read_csv(path_predict,error_bad_lines=False)
 	
-    with open(path_features, 'rb') as file:
-        features=pickle.load(file)
+    #with open(path_features, 'rb') as file:
+        #features=pickle.load(file)
     #list_id = dataframe['SK_ID_CURR'].tolist()
     customer = dataframe['SK_ID_CURR'] 
     customer=customer.astype('int64')
 	
     #return dataframe, customer,predi #,features
-    return dataframe, customer,predi,features
+    return dataframe, customer,predi
 	
 
-dataframe,customer, predi, features = chargement(path)
-#dataframe,customer, predi = chargement(path)
+#dataframe,customer, predi, features = chargement(path)
+dataframe,customer, predi = chargement(path)
 
 
 		
