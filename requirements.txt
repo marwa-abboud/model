@@ -1,0 +1,17 @@
+
+matplotlib
+
+numpy
+
+pandas
+
+
+plotly
+
+
+Cython
+
+seaborn
+
+
+streamlit
