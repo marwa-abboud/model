@@ -17,7 +17,7 @@ import plotly.offline as py
 
 
 #path='/content/drive/MyDrive/projet7/'
-path='C:\Users\hojei\venv\p7\model\'
+path="C:\Users\hojei\venv\p7\model\"
 
 
 #path="C:/Users/hojei/venv/p7/model/"
