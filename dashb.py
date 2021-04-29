@@ -17,10 +17,10 @@ import plotly.offline as py
 
 
 #path='/content/drive/MyDrive/projet7/'
-path="C:\Users\hojei\venv\p7\model\"
+#path="C:\Users\hojei\venv\p7\model\"
 
 
-#path="C:/Users/hojei/venv/p7/model/"
+path="C:/Users/hojei/venv/p7/model/"
 @st.cache #mise en cache de la fonction pour exécution unique
 
 def chargement(path):
@@ -30,7 +30,7 @@ def chargement(path):
     path_features = path + "shap_features.pickle"
     dataframe = pd.read_csv(path_df)
     #dataframe.drop(columns='TARGET',inplace=True)
-    predi = pd.read_csv("C:\Users\hojei\venv\p7\model\prediction.csv")
+    predi = pd.read_csv("C:/Users/hojei/venv/p7/model/prediction.csv")
 	
     with open(path_features, 'rb') as file:
         features=pickle.load(file)
