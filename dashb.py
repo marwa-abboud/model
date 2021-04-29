@@ -23,7 +23,7 @@ import plotly.offline as py
 #path="C:/Users/hojei/venv/p7/model/"
 @st.cache #mise en cache de la fonction pour exécution unique
 
-def chargement(path):
+def chargement():
 
     path_df = "https://raw.githubusercontent.com/marwa-abboud/model/master/dataframe.csv"
     path_predict= "https://raw.githubusercontent.com/marwa-abboud/model/master/prediction.csv"
@@ -43,7 +43,7 @@ def chargement(path):
 	
 
 #dataframe,customer, predi, features = chargement(path)
-dataframe,customer, predi = chargement(path)
+dataframe,customer, predi = chargement()
 
 
 		
