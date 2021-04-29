@@ -22,11 +22,11 @@ import plotly.offline as py
 
 #path="C:/Users/hojei/venv/p7/model/"
 @st.cache #mise en cache de la fonction pour exécution unique
-url= "https://raw.githubusercontent.com/marwa-abboud/model/master/"
+
 def chargement(path):
 
-    path_df = url +"dataframe.csv"
-    path_predict= url +"prediction.csv"
+    path_df = "https://raw.githubusercontent.com/marwa-abboud/model/master/dataframe.csv"
+    path_predict= "https://raw.githubusercontent.com/marwa-abboud/model/master/prediction.csv"
     #path_features = path + "shap_features.pickle"
     dataframe = pd.read_csv(path_df,error_bad_lines=False)
     #dataframe.drop(columns='TARGET',inplace=True)
