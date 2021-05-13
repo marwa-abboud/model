@@ -51,7 +51,7 @@ dataframe,customer, predi = chargement()
 st.title("Implémentez un modèle de scoring")
 
 
-st.subheader("Prédictions de la capacité d'un client à rembourser son prêt")
+
 
 id_client = st.text_input('Veuillez saisir identifiant du client:', 'x')
 
@@ -62,11 +62,11 @@ elif(int(id_client) not in customer.values):
     st.write('Client non reconnu : Veuillez résaisir un idenfifiant')
 	
 else:
-    with st.spinner('Chargement du score du client...'):
+    with st.spinner('Chargement...'):
         class_cust = int(predi[predi['SK_ID_CURR']==int(id_client)]['predict'].values[0])
         proba = predi[predi['SK_ID_CURR']==int(id_client)]['proba'].values[0]
         classe_vrai = int(predi[predi['SK_ID_CURR']==int(id_client)]['TARGET'].values[0])
-
+        st.subheader("Prédictions de la capacité d'un client à rembourser son prêt")
 
         if class_cust == 1: 
             reponse= 'Le risque de défaut de paiement de ce client est élevé'
@@ -94,7 +94,7 @@ else:
         st.write(df_clients)
         mask_1 = (dataframe['TARGET'] == 1)
         mask_0 = (dataframe['TARGET'] == 0)
-        data= dataframe.replace(np.nan,0)
+        data= dataframe.dropna()
 
         data_1 = [data.loc[mask_0,'EXT_SOURCE_1'],data.loc[mask_1,'EXT_SOURCE_1']]
         data_2 = [data.loc[mask_0,'EXT_SOURCE_2'],data.loc[mask_1,'EXT_SOURCE_2']]
@@ -102,7 +102,7 @@ else:
         data_4 = [data.loc[mask_0,'AMT_CREDIT'],data.loc[mask_1,'AMT_CREDIT']]
         group_labels = ['Défaillant', 'Non Défaillant']
         colors = ['#EB89B5', '#37AA9C']
-
+        st.subheader("Distributions des features les plus importantes pour la prediction")
 
 	
         fig1 = ff.create_distplot(data_1, group_labels, show_hist=False, colors=colors,show_rug=False)
