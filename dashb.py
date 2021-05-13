@@ -69,15 +69,15 @@ else:
         st.subheader("Prédictions de la capacité d'un client à rembourser son prêt")
 
         if class_cust == 1: 
-            reponse= 'Le risque de défaut de paiement de ce client est élevé'
+            reponse='client à risque'
             st.markdown('<style>p{color: orange;}</style>', unsafe_allow_html=True)
         else:
-            reponse=  'Le risque de défaut de paiement de ce client est faible'
+            reponse='client peu risqué'
 
         classe_vrai = str(classe_vrai).replace('0', 'sans défaut de paiement').replace('1', 'avec défaut de paiement')
  
-        chaine = 'Prédiction : **' + reponse +  '** avec ' + str(round(proba*100)) + '% \n(classe réelle : '+str(classe_vrai) + ')'
-		#
+        #chaine =  + reponse +  '** avec ' + str(round(proba*100)) + '% \n(classe réelle : '+str(classe_vrai) + ')'
+        chaine= + reponse +  '** avec **' + str(round(proba*100)) + '%** de risque de défaut (classe réelle : '+str(classe_vrai) + ')'
 
         st.markdown(chaine)
 
