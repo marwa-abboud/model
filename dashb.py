@@ -75,9 +75,9 @@ else:
             reponse='client peu risqué'
 
         classe_vrai = str(classe_vrai).replace('0', 'sans défaut de paiement').replace('1', 'avec défaut de paiement')
- 
+
         #chaine =  + reponse +  '** avec ' + str(round(proba*100)) + '% \n(classe réelle : '+str(classe_vrai) + ')'
-        chaine= + reponse +  '** avec **' + str(round(proba*100)) + '%** de risque de défaut (classe réelle : '+str(classe_vrai) + ')'
+        chaine= 'Prédiction : **' + reponse +  '** avec **' + str(round(proba*100)) + '%** de risque de défaut (classe réelle : '+str(classe_vrai) + ')'
 
         st.markdown(chaine)
 
